@@ -8,34 +8,65 @@ import java.util.HashMap;
 public class TreeFactory {
 
   // we need class variable to track all trees
-  private static HashMap<String, Tree> treePool = new HashMap<>();
+  // untill its final we can add objects to the hash map, only the reference to the object is final
+  private static final HashMap<String, Tree> treePool = new HashMap<>();
+  private static Integer greenCounter = 0;
+  private static Integer redCounter = 0;
+  private static Integer blueCounter = 0;
 
   // static method because we don't need to make an instance of class to use it
-  public static TreeFactory(String treeType) {
+  public static Tree getTree(String treeType) {
     Tree tree = treePool.get(treeType);
 
     if (tree == null) {
       switch (treeType) {
         case "Ornamental":
-          tree = new Tree(treeType, 200, 400, "verde");
+          tree = new Tree(treeType, 200, 400, "green");
           break;
 
         case "Frutal":
-          tree = new Tree(treeType, 500, 300, "rojo");
+          tree = new Tree(treeType, 500, 300, "red");
           break;
 
         case "Floral":
-          tree = new Tree(treeType, 100, 200, "celeste");
+          tree = new Tree(treeType, 100, 200, "blue");
           break;
 
         default:
-          System.out.println("Tree type not supported");
+          System.out.println("This type is not supported");
           break;
       }
       System.out.println("New tree added" + tree);
       treePool.put(treeType, tree);
-    } else {
-      System.out.println("Founded tree" + tree);
     }
+
+    // Increase counter
+    switch (treeType) {
+      case "Ornamental":
+        greenCounter++;
+        break;
+
+      case "Frutal":
+        redCounter++;
+        break;
+
+      case "Floral":
+        blueCounter++;
+        break;
+    }
+    // System.out.println("Founded tree" + tree);
+    return tree;
+  }
+
+  public static Integer getGreenCounter() {
+    return greenCounter;
+  }
+
+  public static Integer getRedCounter() {
+    return redCounter;
+  }
+
+  public static Integer getBlueCounter() {
+    return blueCounter;
   }
 }
