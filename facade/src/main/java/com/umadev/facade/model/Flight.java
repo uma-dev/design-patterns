@@ -13,6 +13,13 @@ public class Flight {
     this.destination = destination;
   }
 
+  public Flight() {
+    this.departureDate = null;
+    this.returnDate = null;
+    this.origin = null;
+    this.destination = null;
+  }
+
   public String getDepartureDate() {
     return departureDate;
   }

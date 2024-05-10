@@ -9,17 +9,22 @@ public class HotelApi {
 
   public HotelApi() {
     hotels = new ArrayList<Hotel>();
+    fillHotels();
   }
 
-  public void findHotel(Hotel hotel) {
+  public Hotel findHotel(Hotel hotel) {
     for (Hotel h : hotels) {
       if (h.equals(hotel)) {
-        System.out.println("Hotel found! " + h.toString());
+        return h;
       }
     }
+    return new Hotel();
   }
 
-  public void addHotel(Hotel newHotel) {
-    hotels.add(newHotel);
+  public void fillHotels() {
+    Hotel hotel1 = new Hotel("10am", "1pm", "CMDX");
+    Hotel hotel2 = new Hotel("10am", "1pm", "CMDX");
+    hotels.add(hotel1);
+    hotels.add(hotel2);
   }
 }

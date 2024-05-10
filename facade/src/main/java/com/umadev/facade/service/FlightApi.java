@@ -9,17 +9,22 @@ public class FlightApi {
 
   public FlightApi() {
     flights = new ArrayList<Flight>();
+    fillFlights();
   }
 
-  public void findFlight(Flight flight) {
+  public Flight findFlight(Flight flight) {
     for (Flight f : flights) {
       if (f.equals(flight)) {
-        System.out.println("Flight found! " + f.toString());
+        return f;
       }
     }
+    return new Flight();
   }
 
-  public void addFlight(Flight newFlight) {
-    flights.add(newFlight);
+  public void fillFlights() {
+    Flight flight1 = new Flight("10-15-2023", "30-15-2023", "MTY", "CDMX");
+    Flight flight2 = new Flight("10-15-2023", "30-15-2023", "MTY", "CDMX");
+    flights.add(flight1);
+    flights.add(flight2);
   }
 }

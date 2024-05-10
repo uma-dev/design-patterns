@@ -12,6 +12,12 @@ public class Hotel {
     this.city = city;
   }
 
+  public Hotel() {
+    this.checkIn = null;
+    this.checkOut = null;
+    this.city = null;
+  }
+
   public String getCheckIn() {
     return checkIn;
   }
