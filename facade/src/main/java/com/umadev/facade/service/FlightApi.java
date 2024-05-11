@@ -18,6 +18,7 @@ public class FlightApi {
         return f;
       }
     }
+    System.out.println("Flight not found!");
     return new Flight();
   }
 

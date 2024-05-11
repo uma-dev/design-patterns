@@ -18,12 +18,13 @@ public class HotelApi {
         return h;
       }
     }
+    System.out.println("Hotel not found!");
     return new Hotel();
   }
 
   public void fillHotels() {
-    Hotel hotel1 = new Hotel("10am", "1pm", "CMDX");
-    Hotel hotel2 = new Hotel("10am", "1pm", "CMDX");
+    Hotel hotel1 = new Hotel("10-15-2023", "30-15-2023", "CDMX");
+    Hotel hotel2 = new Hotel("10-15-2023", "30-15-2023", "CDMX");
     hotels.add(hotel1);
     hotels.add(hotel2);
   }
