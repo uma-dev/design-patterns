@@ -2,7 +2,7 @@ package com.umadev.template.model;
 
 public class MenuKids extends MenuTemplate {
 
-  private static final double priceOfToys = 10.99;
+  private static final double priceOfToys = 10;
   private Integer numberOfToys;
 
   public MenuKids(Integer numberOfToys) {
