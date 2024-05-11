@@ -14,13 +14,19 @@ public class TripFinderImpl implements TripFinder {
   }
 
   @Override
-  public void searchTrip(
+  public boolean searchTrip(
       String origin, String destination, String departureDate, String returnDate) {
 
+    // Here is where the magic occurs, we can manage and create the objects according to our
+    // bussiness logic
     Flight flight = new Flight(departureDate, returnDate, origin, destination);
-    Hotel hotel = new Hotel(departureDate, returnDate, destination);
+    Flight foundedFlight = flightApi.findFlight(flight);
+    boolean isFlightFinded = foundedFlight.equals(flight);
 
-    flightApi.findFlight(flight);
-    hotelApi.findHotel(hotel);
+    Hotel hotel = new Hotel(departureDate, returnDate, destination);
+    Hotel findedHotel = hotelApi.findHotel(hotel);
+    boolean isHotelFound = findedHotel.equals(hotel);
+
+    return isHotelFound && isFlightFinded;
   }
 }
